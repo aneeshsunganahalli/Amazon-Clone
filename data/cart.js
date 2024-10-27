@@ -1,5 +1,17 @@
 import {products} from "./products.js";
 
+export function updateQuantity(productId, newQuantity){
+  let matchingItem;
+  cart.forEach((cartItem) => {
+    if(cartItem.productId === productId){
+      matchingItem = cartItem;
+    }
+  });
+
+    matchingItem.quantity = newQuantity;
+    saveToStorage();
+}
+
  export let cart = JSON.parse(localStorage.getItem('cart'));
  if(!cart) {
   cart = [{
